@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 # Require a specific ruby version 
 ruby "2.1.3"
-
+# Make the site look better 
+gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Dev and Test
