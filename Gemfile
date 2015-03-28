@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 ruby "2.1.3"
 # Make the site look better 
 gem 'bootstrap-sass'
+# User Managment
+gem 'devise', '~> 3.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Dev and Test
