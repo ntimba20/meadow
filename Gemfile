@@ -11,6 +11,8 @@ gem 'rails', '4.1.8'
 gem 'sqlite3', group: [:development, :test]
 # Use pg as the database for production
 gem 'pg' , group: :production
+# Calendar Gem
+gem "simple_calendar", "~> 1.1.0"
 # Added for Heroku
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets

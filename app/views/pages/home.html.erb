@@ -1,1 +1,21 @@
-Hello World!
+<%= month_calendar table: {class: "table table-bordered"}, 
+	tr: {class: "calendar-row"}, 
+	td: {class: "day"},
+	day_names: "date.day_names", 
+	events: @meetings do |date, meetings| %>
+  		<% if date.yday == Time.now.yday %>
+          <now class="label label-primary"><b><%= date.day %></b></now>
+        <% else %>
+        <% if date.month == Time.now.mon %>
+          <in class="label label-success"><b><%= date.day %></b></in>
+        <% else %>
+			     <out class="label label-warning"><%= date.day %></out>
+        <% end %>
+			<% end %>
+     
+  <% meetings.each do |meeting| %>
+    <div>
+      <evn class="label label-info"><%= link_to meeting.name, meeting %></evn>
+    </div>
+  <% end %>
+<% end %>
