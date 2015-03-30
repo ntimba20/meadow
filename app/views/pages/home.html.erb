@@ -1,15 +1,16 @@
 <%= month_calendar table: {class: "table table-bordered"}, 
-	tr: {class: "calendar-row"}, 
+	header: {class: "calendar-header", style: "font-size:30px;"},
+  tr: {class: "calendar-row"}, 
 	td: {class: "day"},
 	day_names: "date.day_names", 
 	events: @meetings do |date, meetings| %>
   		<% if date.yday == Time.now.yday %>
-          <now class="label label-primary"><b><%= date.day %></b></now>
+          <now class="label label-primary"><b><%= link_to date.day, new_meeting_path %></b></now>
         <% else %>
         <% if date.month == Time.now.mon %>
-          <in class="label label-success"><b><%= date.day %></b></in>
+          <in class="label label-success"><b><%= link_to date.day, new_meeting_path %></b></in>
         <% else %>
-			     <out class="label label-warning"><%= date.day %></out>
+			     <out class="label label-warning"><%= link_to date.day, new_meeting_path %></out>
         <% end %>
 			<% end %>
      
@@ -19,3 +20,5 @@
     </div>
   <% end %>
 <% end %>
+
+

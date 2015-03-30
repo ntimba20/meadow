@@ -1,25 +1,26 @@
-<%= form_for(@meeting) do |f| %>
-  <% if @meeting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+<%= simple_form_for @meeting do |f| %>
+<div class="row">
+  	<div class="col-md-4">
+	 	 <%= f.input :name, label: false, placeholder: "Last Name"  %>
+	 	 <%= f.input :address, label: false, placeholder: "Address"  %>
+		 <%= f.input :starts_at, as: :datetime_picker %>
+		 <%= f.input :end_at, as: :time_picker %>
+   	<div class="actions">
+      	 <div><%= f.submit "Submit", class: "btn btn-primary" %> <%= link_to "Cancel", root_path, class: "btn btn-inverse" %></div>
+ 	</div>
 
-      <ul>
-      <% @meeting.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+</div>
+  
+  
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :starts_at %><br>
-    <%= f.datetime_select :starts_at %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	
+
+
+
+ 
+
+
 <% end %>

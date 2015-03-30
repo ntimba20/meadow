@@ -23,7 +23,15 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     @meeting.save
-    respond_with(@meeting)
+    respond_to do |format|
+      if @meeting.save
+        format.html { redirect_to root_path }
+        format.json { render json: @meeting, status: :created, location: @meeting }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @meeting.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update

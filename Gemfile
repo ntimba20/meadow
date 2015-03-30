@@ -3,6 +3,11 @@ source 'https://rubygems.org'
 ruby "2.1.3"
 # Make the site look better 
 gem 'bootstrap-sass'
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem "font-awesome-rails"
+# Make the Site Easy
+gem 'simple_form'
 # User Managment
 gem 'devise', '~> 3.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
