@@ -36,7 +36,14 @@ class MeetingsController < ApplicationController
 
   def update
     @meeting.update(meeting_params)
-    respond_with(@meeting)
+    @meeting.save
+    respond_to do |format|
+     if @meeting.save
+        format.html { redirect_to root_path }
+      else
+        format.html { render action: "edit" }
+      end
+    end
   end
 
   def destroy
@@ -50,6 +57,6 @@ class MeetingsController < ApplicationController
     end
 
     def meeting_params
-      params.require(:meeting).permit(:name, :starts_at)
+      params.require(:meeting).permit(:name, :starts_at, :end_at, :address)
     end
 end

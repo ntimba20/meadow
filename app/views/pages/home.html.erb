@@ -16,7 +16,7 @@
      
   <% meetings.each do |meeting| %>
     <div>
-      <evn class="label label-info"><%= link_to meeting.name, meeting %></evn>
+      <evn class="label label-info"><%= link_to meeting.name, edit_meeting_path(meeting) %> Start Hour- <%= meeting.starts_at.hour %></evn>
     </div>
   <% end %>
 <% end %>
